@@ -61,7 +61,20 @@ mbl_text = MBL %>% select(post_id, post_text, comment_message)
 mbl_posts_assunto = unique(mbl_text$post_text)
 mbl_posts_assunto = as.data.frame(mbl_posts_assunto, stringsAsFactors=F)
 
-mbl_subject = c()
+mbl_subject = c("alvaro dias", "jean wyllys", "lula", "kim kata", "corrupcao", "alvaro dias", "abuso autoridade", "jean wyllys", "PT", NA,
+                "pavinatto", "gleisi hoff", "heróis", "esquerda", "esquerda", "politicos esquerda", "renan calheiros", "carta capital", "jose medeiros", "politicos esquerda",
+                "renan calheiros", "reforma previdencia", "roberto justus", "sergio moro", "politicos esquerda", "corrupcao", "fernando holiday", "esquerda", "vergonha", "ciro gomes",
+                "pavinatto", "renan calheiros", "renan calheiros", "PT", "coletiva", "renan calheiros", "renan calheiros", "pavinatto", "kim kata", "pavinatto",
+                "magno malta", "magno malta", "renan calheiros", "super salarios", "cobertura", "danilo gentili", "renan calheiros", "lula", "gleisi hoff", "manifestacoes",
+                "renan calheiros", "cobertura", "cobertura", "cobertura", "cobertura", "cobertura", "kim kata", "cobertura", "cobertura", "cobertura",
+                "cobertura", "cobertura", "cobertura", "danilo gentili", "esquerda", "manifestacao", "lindbergh", "renan calheiros", "renan calheiros", "ocupacoes",
+                "moro", "PEC55", "renan calheiros", "abuso autoridade", "fernando holiday", "pavinatto", "camara deputados", "manifestacao", "lava jato", "manifestacao",
+                "manifestacao", "imposto sindical", "foro privilegiado", "foro privilegiado", "PEC55", "medidas corrupcao", "jean wyllys", "esquerda", "esquerda", "PT",
+                "esquerda", "fascistas", "jean wyllys", "medidas corrupcao", "medidas corrupcao", "esquerda", "esquerda", "esquerda", "globo", "heróis",
+                "jose serra", "esquerda", "desigualdade", "pavinatto", "fidel castro", "fidel castro", "fidel castro", "manifestacao", "abuso autoridade", "live",
+                "ocupacoes", "ocupacoes", "pavinatto", "manifestacao", "lula", "medidas corrupcao", "sergio moro", "sostenes cavalcante", "danilo gentili", "globo",
+                "foto", "medidas corrupcao", "onyx lorenzoni", "medidas corrupcao", "luiz carlos santos", "lula", "pavinatto", "corrupcao", "armas", "congresso MBL",
+                "congresso MBL", "congresso MBL", "lula", "esquerda")
 
 
 
