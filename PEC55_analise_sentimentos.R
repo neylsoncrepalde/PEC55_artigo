@@ -56,7 +56,7 @@ une_text_unnested = une_text_unnested %>%
 
 une_text_unnested[1:100,]
 
-# Cria bd com os dois léxicos
+# Cria bd com análises das classificações
 une_class = une_text_unnested %>% 
   group_by(post_id) %>% 
   summarise(
