@@ -48,18 +48,16 @@ une_class = une_unnested %>% group_by(une_subject) %>%
 
 # Exibe os resultados
 une_class
-purrr::map(une_class, class)
+purrr::map_chr(une_class, class)
 
 # Plota os resultados
-cor_op = ifelse(une_class$sentiment_op30 < 0, "red", "blue")
-ggplot(une_class, aes(x=une_subject, y=sentiment_op30))+
-  geom_col(fill = cor_op)+
+ggplot(une_class, aes(x=une_subject, y=sentiment_op30, fill=sentiment_op30))+
+  geom_col()+
   scale_y_continuous(limits = c(min(une_class$sentiment_op30), max(une_class$sentiment_op30)))+
   labs(x="Assunto", y="Inclinação dos comentários", title="Reações dos comentários aos posts da UNE - OPLexicon 3.0")
 
-cor_sent = ifelse(une_class$sentiment_lex < 0, "red", "blue")
-ggplot(une_class, aes(x=une_subject, y=sentiment_lex))+
-  geom_col(fill = cor_sent)+
+ggplot(une_class, aes(x=une_subject, y=sentiment_lex, fill=sentiment_lex))+
+  geom_col()+
   scale_x_discrete()+
   labs(x="Assunto", y="Inclinação dos comentários", title="Reações dos comentários aos posts da UNE - SentiLex")
 
