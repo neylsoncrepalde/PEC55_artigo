@@ -65,7 +65,7 @@ mbl_subject = c("alvaro dias", "jean wyllys", "lula", "kim kata", "corrupcao", "
                 "pavinatto", "gleisi hoff", "heróis", "esquerda", "esquerda", "politicos esquerda", "renan calheiros", "carta capital", "jose medeiros", "politicos esquerda",
                 "renan calheiros", "reforma previdencia", "roberto justus", "sergio moro", "politicos esquerda", "corrupcao", "fernando holiday", "esquerda", "vergonha", "ciro gomes",
                 "pavinatto", "renan calheiros", "renan calheiros", "PT", "coletiva", "renan calheiros", "renan calheiros", "pavinatto", "kim kata", "pavinatto",
-                "magno malta", "magno malta", "renan calheiros", "super salarios", "cobertura", "danilo gentili", "renan calheiros", "lula", "gleisi hoff", "manifestacoes",
+                "magno malta", "magno malta", "renan calheiros", "super salarios", "cobertura", "danilo gentili", "renan calheiros", "lula", "gleisi hoff", "manifestacao",
                 "renan calheiros", "cobertura", "cobertura", "cobertura", "cobertura", "cobertura", "kim kata", "cobertura", "cobertura", "cobertura",
                 "cobertura", "cobertura", "cobertura", "danilo gentili", "esquerda", "manifestacao", "lindbergh", "renan calheiros", "renan calheiros", "ocupacoes",
                 "moro", "PEC55", "renan calheiros", "abuso autoridade", "fernando holiday", "pavinatto", "camara deputados", "manifestacao", "lava jato", "manifestacao",
