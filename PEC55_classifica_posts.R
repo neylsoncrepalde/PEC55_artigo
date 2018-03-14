@@ -36,7 +36,7 @@ rm(oplexicon_v3.0, sentiLex_lem_PT02)
 # UNE
 # Limpa
 une_text = UNE %>% select(post_id, post_text, comment_message)
-une_posts_assunto = unique(une_posts_assunto$post_text)
+une_posts_assunto = unique(une_text$post_text)
 une_posts_assunto = as.data.frame(une_posts_assunto, stringsAsFactors=F)
 
 une_subject = c("teatro","heróis","bienal da UNE", "ocupacao", "artes visuais", "bienal da UNE", "bienal da UNE", "bienal da UNE", "bienal da UNE", "heróis",
@@ -58,4 +58,12 @@ une_text_completo
 
 # MBL
 mbl_text = MBL %>% select(post_id, post_text, comment_message)
+mbl_posts_assunto = unique(mbl_text$post_text)
+mbl_posts_assunto = as.data.frame(mbl_posts_assunto, stringsAsFactors=F)
+
+mbl_subject = c()
+
+
+
+
 # Fazer a classificação
