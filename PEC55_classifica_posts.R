@@ -36,7 +36,24 @@ rm(oplexicon_v3.0, sentiLex_lem_PT02)
 # UNE
 # Limpa
 une_text = UNE %>% select(post_id, post_text, comment_message)
-# Fazer a classificação
+une_posts_assunto = unique(une_posts_assunto$post_text)
+une_posts_assunto = as.data.frame(une_posts_assunto, stringsAsFactors=F)
+
+une_subject = c("teatro","heróis","bienal da UNE", "ocupacao", "artes visuais", "bienal da UNE", "bienal da UNE", "bienal da UNE", "bienal da UNE", "heróis",
+                "heróis", "detidos", "PEC55", "PEC55", "PEC55", "PEC55", "MP Ens Med", "presidente", "ocupacao", "foto",
+                "PEC55", "ocupacao", "PEC55", "ocupacao", "PEC55", "ocupacao", "brasilia", "ocupacao", "PEC55", "PEC55",
+                "PEC55", "PEC55", "ocupacao", "ocupacao", "heróis", "PEC55", "ocupacao", "PEC55", "ocupacao", "ocupacao",
+                "ocupacao", "ocupacao", "ocupacao", "debate", "ocupacao", "ocupacao", "ocupacao", "ocupacao", "ocupacao", "ocupacao",
+                "ocupacao", "ocupacao", "ocupacao", "ocupacao", "ocupacao", "ocupacao", "bienal da UNE", "testemunho", "ocupacao", "ocupacao",
+                "ocupacao", "ocupacao", "PEC55", "ocupacao", "ocupacao", "PEC55", "ocupacao")
+une_posts_assunto = cbind(une_posts_assunto, une_subject)
+names(une_posts_assunto)[1] = "post_text"
+
+une_text_completo = left_join(une_text, une_posts_assunto)
+
+une_text_completo
+
+# Segue para as análises #################
 
 
 # MBL
