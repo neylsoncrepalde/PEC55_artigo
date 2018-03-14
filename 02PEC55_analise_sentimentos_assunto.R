@@ -51,17 +51,14 @@ une_class
 purrr::map_chr(une_class, class)
 
 # Plota os resultados
-ggplot(une_class, aes(x=une_subject, y=sentiment_op30, fill=sentiment_op30))+
+ggplot(une_class, aes(x=une_subject, y=sentiment_op30))+
   geom_col()+
   scale_y_continuous(limits = c(min(une_class$sentiment_op30), max(une_class$sentiment_op30)))+
   labs(x="Assunto", y="Inclinação dos comentários", title="Reações dos comentários aos posts da UNE - OPLexicon 3.0")
 
-ggplot(une_class, aes(x=une_subject, y=sentiment_lex, fill=sentiment_lex))+
+ggplot(une_class, aes(x=une_subject, y=sentiment_lex))+
   geom_col()+
   scale_x_discrete()+
   labs(x="Assunto", y="Inclinação dos comentários", title="Reações dos comentários aos posts da UNE - SentiLex")
-
-
-
 
 
