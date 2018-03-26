@@ -54,18 +54,20 @@ une_class = une_unnested %>% group_by(une_subject) %>%
 
 # Exibe os resultados
 une_class
-purrr::map_chr(une_class, class)
+sapply(une_class, class)
 
 # Plota os resultados
 ggplot(une_class, aes(x=une_subject, y=sentiment_op30))+
   geom_col()+
   scale_y_continuous(limits = c(min(une_class$sentiment_op30), max(une_class$sentiment_op30)))+
-  labs(x="Assunto", y="Inclinação dos comentários", title="Reações dos comentários aos posts da UNE - OPLexicon 3.0")
+  coord_flip()+
+  labs(x="Assunto", y="Inclinação dos comentários", title="Inclinação dos comentários - UNE - OPLexicon 3.0")
 
 ggplot(une_class, aes(x=une_subject, y=sentiment_lex))+
   geom_col()+
   scale_x_discrete()+
-  labs(x="Assunto", y="Inclinação dos comentários", title="Reações dos comentários aos posts da UNE - SentiLex")
+  coord_flip()+
+  labs(x="Assunto", y="Inclinação dos comentários", title="Inclinação dos comentários - UNE - SentiLex")
 
 #--------------------------------------------------
 ### MBL
@@ -75,6 +77,8 @@ mbl_text_completo$comment_treated = mbl_text_completo$comment_message %>%
   removeNumbers
 mbl_text_completo$comment_treated = mbl_text_completo$comment_treated %>% 
   removeWords(., "pra")
+
+
 
 # Cria id único para cada comentário
 mbl_text_completo %<>% mutate(comment_id = row_number())
@@ -95,6 +99,8 @@ mbl_unnested %>% select(term, polarity, lex_polarity)
 
 # Tabela dos assuntos
 freq(mbl_text_completo$mbl_subject, plot=T)
+ggplot(na.omit(mbl_text_completo), aes(fct_rev(fct_infreq(mbl_subject))))+geom_bar()+coord_flip()+
+  labs(x="Assuntos", y="Frequência", title="Comentários por assunto - MBL")
 
 # Inclinação de sentimentos por assunto
 mbl_class = mbl_unnested %>% group_by(mbl_subject) %>%
