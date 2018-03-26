@@ -40,6 +40,9 @@ une_unnested %>% select(term, polarity, lex_polarity)
 
 # Tabela dos assuntos
 freq(une_text_completo$une_subject, plot=T)
+library(forcats)
+ggplot(une_text_completo, aes(fct_rev(fct_infreq(une_subject))))+geom_bar()+coord_flip()+
+  labs(x="Assuntos", y="Frequência", title="Comentários por assunto - UNE")
 
 # Inclinação de sentimentos por assunto
 une_class = une_unnested %>% group_by(une_subject) %>%
