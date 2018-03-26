@@ -112,15 +112,17 @@ mbl_class = mbl_unnested %>% group_by(mbl_subject) %>%
 
 # Exibe os resultados
 mbl_class
-purrr::map_chr(mbl_class, class)
+sapply(mbl_class, class)
 
 # Plota os resultados
-ggplot(mbl_class, aes(x=mbl_subject, y=sentiment_op30))+
+ggplot(na.omit(mbl_class), aes(x=mbl_subject, y=sentiment_op30))+
   geom_col()+
   scale_y_continuous(limits = c(min(mbl_class$sentiment_op30), max(mbl_class$sentiment_op30)))+
-  labs(x="Assunto", y="Inclinação dos comentários", title="Reações dos comentários aos posts da MBL - OPLexicon 3.0")
+  coord_flip()+
+  labs(x="Assunto", y="Inclinação dos comentários", title="Inclinação dos comentários - MBL - OPLexicon 3.0")
 
-ggplot(mbl_class, aes(x=mbl_subject, y=sentiment_lex))+
+ggplot(na.omit(mbl_class), aes(x=mbl_subject, y=sentiment_lex))+
   geom_col()+
   scale_x_discrete()+
-  labs(x="Assunto", y="Inclinação dos comentários", title="Reações dos comentários aos posts da MBL - SentiLex")
+  coord_flip()+
+  labs(x="Assunto", y="Inclinação dos comentários", title="Inclinação dos comentários - MBL - SentiLex")
