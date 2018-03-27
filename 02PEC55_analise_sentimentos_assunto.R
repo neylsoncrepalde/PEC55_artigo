@@ -28,7 +28,7 @@ une_text_completo %<>% mutate(comment_id = row_number())
 # Cria nuvem de palavras dos comentários
 pal = brewer.pal(9, "YlGnBu")
 pal = pal[-(1:4)]
-wordcloud(enc2native(une_text_completo$comment_treated), min.freq = 5, colors = pal, max.words = 100, 
+wordcloud(enc2native(une_text_completo$comment_treated), min.freq = 2, colors = pal, max.words = 100, 
           random.order = F)
 
 # Coloca cada termo em uma linha
@@ -137,3 +137,21 @@ ggplot(na.omit(mbl_class), aes(x=mbl_subject, y=sentiment_lex))+
   scale_x_discrete()+
   coord_flip()+
   labs(x="Assunto", y="Inclinação dos comentários", title="Inclinação dos comentários - MBL - SentiLex")
+
+
+################################################
+# Plot com wordclouds das postagens das duas páginas
+une_text_completo$post_treated = une_text_completo$post_text %>%
+  tolower %>% removePunctuation %>% removeWords(., stopwords("pt")) %>% 
+  removeNumbers
+postagens_une = unique(une_text_completo$post_treated)
+
+mbl_text_completo$post_treated = mbl_text_completo$post_text %>%
+  tolower %>% removePunctuation %>% removeWords(., stopwords("pt")) %>% 
+  removeNumbers
+postagens_mbl = unique(mbl_text_completo$post_treated)
+
+wordcloud(enc2native(postagens_une), min.freq = 3, colors = pal, max.words = 100, 
+          random.order = F)
+wordcloud(enc2native(postagens_mbl), min.freq = 3, colors = pal, max.words = 100, 
+          random.order = F)
