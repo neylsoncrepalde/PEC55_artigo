@@ -7,6 +7,7 @@
 source("01PEC55_classifica_posts.R")
 library(descr)
 library(tidytext)
+library(wordcloud)
 
 # mbl_text_completo e une_text_completo
 
@@ -23,6 +24,12 @@ une_text_completo$comment_treated = une_text_completo$comment_treated %>%
 
 # Cria id único para cada comentário
 une_text_completo %<>% mutate(comment_id = row_number())
+
+# Cria nuvem de palavras dos comentários
+pal = brewer.pal(9, "YlGnBu")
+pal = pal[-(1:4)]
+wordcloud(enc2native(une_text_completo$comment_treated), min.freq = 5, colors = pal, max.words = 100, 
+          random.order = F)
 
 # Coloca cada termo em uma linha
 une_unnested = une_text_completo %>% unnest_tokens("term", "comment_message")
@@ -82,6 +89,10 @@ mbl_text_completo$comment_treated = mbl_text_completo$comment_treated %>%
 
 # Cria id único para cada comentário
 mbl_text_completo %<>% mutate(comment_id = row_number())
+
+# Cria nuvem de palavras dos comentários
+wordcloud(enc2native(mbl_text_completo$comment_treated), min.freq = 5, colors = pal, max.words = 100, 
+          random.order = F)
 
 # Coloca cada termo em uma linha
 mbl_unnested = mbl_text_completo %>% unnest_tokens("term", "comment_message")
